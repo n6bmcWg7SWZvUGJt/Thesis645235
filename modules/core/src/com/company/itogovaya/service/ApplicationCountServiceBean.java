@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 /**
- * @author YobaEtoYa
+ * @author Lebedev
  */
 
 

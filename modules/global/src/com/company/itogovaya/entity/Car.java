@@ -1,7 +1,9 @@
 /*
  * Copyright (c) 2020 com.company.itogovaya.entity
  */
-package com.company.itogovaya.entity;
+package com.company.itogovaya.entity; /**
+ * @author Lebedev
+ */
 
 
 /**

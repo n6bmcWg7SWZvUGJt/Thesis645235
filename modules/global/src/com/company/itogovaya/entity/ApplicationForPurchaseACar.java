@@ -37,7 +37,7 @@ import javax.persistence.ManyToOne;
 import com.haulmont.cuba.core.entity.annotation.Listeners;
 
 /**
- * @author YobaEtoYa
+ * @author Lebedev
  */
 @Listeners("thesis_DocEntityListener")
 @Inheritance(strategy = InheritanceType.JOINED)

@@ -14,7 +14,7 @@ import javax.inject.Inject;
 import java.util.Map;
 
 /**
- * @author YobaEtoYa
+ * @author Lebedev
  */
 public class ExtCompanyBrowser extends CompanyBrowser {
     @Inject

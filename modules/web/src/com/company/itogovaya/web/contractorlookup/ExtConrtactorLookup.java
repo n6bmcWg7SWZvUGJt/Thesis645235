@@ -15,7 +15,7 @@ import javax.inject.Inject;
 import java.util.Map;
 
 /**
- * @author YobaEtoYa
+ * @author Lebedev
  */
 public class ExtConrtactorLookup extends ConrtactorLookup {
     @Inject

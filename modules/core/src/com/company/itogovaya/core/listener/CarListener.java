@@ -17,7 +17,7 @@ import javax.inject.Inject;
 
 import com.company.itogovaya.entity.Car;
 /**
- * @author YobaEtoYa
+ * @author Lebedev
  */
 @ManagedBean("itogovaya_CarListener")
 public class CarListener implements BeforeUpdateEntityListener<Car>, BeforeInsertEntityListener<Car> {

@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 import com.company.itogovaya.entity.ApplicationForPurchaseACar;
 
 /**
- * @author YobaEtoYa
+ * @author Lebedev
  */
 @ManagedBean(ApplicationForPurchaseACarReassignmentCommand.NAME)
 public class ApplicationForPurchaseACarReassignmentCommand extends AbstractDocReassignmentCommand<ApplicationForPurchaseACar> {
