@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<entities xmlns="http://schemas.haulmont.com/thesis/4.0/loggedEntities.xsd">
+    <entity metaClass="itogovaya$CarModel"/>
+    <entity metaClass="itogovaya$CarBase">
+        <property logged="false"
+                  name="parentCardAccess"/>
+    </entity>
+    <entity metaClass="itogovaya$Car"/>
+    <entity metaClass="itogovaya$CarTemplate"/>
+    <entity metaClass="itogovaya$ApplicationForPurchaseACar"/>
+</entities>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.itogovaya.web.screens.Screen"
+        messagesPack="com.company.itogovaya.web.screens">
+    <dsContext>
+        <collectionDatasource id="carDs"
+                              class="com.company.itogovaya.entity.Car"
+                              view="browse">
+            <query>
+                <![CDATA[select e from itogovaya$Car e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout>
+        <buttonsPanel>
+            <lookupField id="lookupField"
+                         optionsDatasource="carDs"/>
+            <button id="button"
+                    caption="get"
+                    invoke="onButtonClick"/>
+            <label id="label"
+                   value="Select car"/>
+        </buttonsPanel>
+    </layout>
+</window>

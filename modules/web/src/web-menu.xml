@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application"
+          insertBefore="administration">
+        <item id="itogovaya$Car.lookup"/>
+        <item id="itogovaya$CarTemplate.lookup"/>
+        <item id="itogovaya$ApplicationForPurchaseACar.lookup"/>
+        <item id="screen"
+              openType="NEW_TAB"/>
+        <item id="sec$Role.edit"
+              openType="NEW_TAB"/>
+    </menu>
+    <item id="itogovaya$CarModel.lookup"
+          insertAfter="ts$SubscriberEdm.browse"/>
+    <item id="itogovaya$ApplicationForPurchaseACar.templateBrowse"
+          insertAfter="df$AccountDoc.templateBrowse">
+        <param name="inTemplates"
+               value="true"/>
+        <permissions>
+            <permission target="itogovaya$ApplicationForPurchaseACar:create"
+                        type="ENTITY_OP"/>
+        </permissions>
+    </item>
+</menu-config>

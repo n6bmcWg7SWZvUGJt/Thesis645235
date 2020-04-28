@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2019 Haulmont Technology Ltd. All Rights Reserved.
+ * Haulmont Technology proprietary and confidential.
+ * Use is subject to license terms.
+ */
+
+rootProject.name = 'itogovaya'
+include(':itogovaya-global', ':itogovaya-core', ':itogovaya-gui',
+        ':itogovaya-web', ':itogovaya-portal', ':itogovaya-mobile', ':itogovaya-mobile-rest')
+project(':itogovaya-global').projectDir = new File(settingsDir, 'modules/global')
+project(':itogovaya-core').projectDir = new File(settingsDir, 'modules/core')
+project(':itogovaya-gui').projectDir = new File(settingsDir, 'modules/gui')
+project(':itogovaya-web').projectDir = new File(settingsDir, 'modules/web')
+project(':itogovaya-portal').projectDir = new File(settingsDir, 'modules/portal')
+project(':itogovaya-mobile-rest').projectDir = new File(settingsDir, 'modules/mobile-rest')

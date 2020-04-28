@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editCaption"
+        class="com.company.itogovaya.web.cartemplate.CarTemplateEdit"
+        datasource="cardDs"
+        messagesPack="com.company.itogovaya.web.cartemplate">
+    <dsContext>
+        <datasource id="cardDs"
+                    class="com.company.itogovaya.entity.CarTemplate"
+                    view="edit">
+            <collectionDatasource id="cardProcDs"
+                                  property="procs"/>
+            <collectionDatasource id="cardRolesDs"
+                                  property="roles"/>
+        </datasource>
+        <hierarchicalDatasource id="attachmentsDs"
+                                class="com.haulmont.workflow.core.entity.CardAttachment"
+                                hierarchyProperty="versionOf"
+                                view="card-edit">
+            <query>select a from wf$CardAttachment a where a.card.id = :ds$cardDs order by a.createTs desc</query>
+        </hierarchicalDatasource>
+        <collectionDatasource id="cardRelationsDs"
+                              class="com.haulmont.workflow.core.entity.CardRelation"
+                              view="card-relation">
+            <query>
+                <![CDATA[
+                select c from wf$CardRelation c where (c.card.id = :ds$cardDs or c.relatedCard.id = :ds$cardDs)
+                ]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="carModelsDs"
+                              class="com.company.itogovaya.entity.CarModel"
+                              view="_minimal">
+            <query>
+                <![CDATA[ select e from itogovaya$CarModel e ]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout expand="mainPane"
+            spacing="true">
+        <grid id="templatePane"
+              margin="true"
+              spacing="true">
+            <columns count="2"/>
+            <rows>
+                <row>
+                    <label value="msg://templateName"/>
+                    <textField id="templateName"
+                               datasource="cardDs"
+                               property="templateName"
+                               required="true"
+                               width="550px"/>
+                </row>
+            </rows>
+        </grid>
+        <hbox id="mainPane"
+              height="100%"
+              width="100%">
+            <hbox id="dropZoneBox"
+                  expand="tabsheet"
+                  height="100%"
+                  width="100%">
+                <tabSheet id="tabsheet"
+                          height="100%"
+                          width="100%">
+                    <tab id="mainTab"
+                         caption="msg://mainTab"
+                         margin="true">
+                        <groupBox id="infoGroupBox"
+                                  expand="infoScrollBox"
+                                  height="100%"
+                                  stylename="edit-area"
+                                  width="100%">
+                            <scrollBox id="infoScrollBox"
+                                       scrollBars="both">
+                                <vbox id="infoVBox"
+                                      width="600px">
+                                    <fieldGroup id="fieldGroup"
+                                                datasource="cardDs"
+                                                stylename="thesis-separator"
+                                                width="550px">
+                                        <column width="250px">
+                                            <field id="carModel"
+                                                   optionsDatasource="carModelsDs"/>
+                                            <field id="name"/>
+                                            <field id="issue"/>
+                                            <field id="price"/>
+                                            <field id="global"/>
+                                            <field id="carType"/>
+                                        </column>
+                                    </fieldGroup>
+                                    <grid id="attachmentInfo"
+                                          margin="true;false;false;false"
+                                          spacing="true"
+                                          stylename="thesis-separator"
+                                          visible="false"
+                                          width="550px">
+                                        <columns>
+                                            <column flex="1"/>
+                                        </columns>
+                                        <rows>
+                                            <row>
+                                                <vbox id="attachmentBox"
+                                                      height="100%">
+                                                </vbox>
+                                            </row>
+                                        </rows>
+                                    </grid>
+                                </vbox>
+                            </scrollBox>
+                        </groupBox>
+                    </tab>
+                    <tab id="attachmentsTab"
+                         caption="msg://attachmentsTab"
+                         expand="cardAttachmentsFrame"
+                         margin="true">
+                        <iframe id="cardAttachmentsFrame"
+                                screen="cardAttachmentsFrame"/>
+                    </tab>
+                    <tab id="processTab"
+                         caption="msg://processTab"
+                         expand="cardProcFrame"
+                         margin="true">
+                        <iframe id="cardProcFrame"
+                                screen="cardProcFrame"/>
+                    </tab>
+                    <tab id="cardTreeTab"
+                         caption="msg://cardTreeTab"
+                         expand="cardTreeFrame">
+                        <iframe id="cardTreeFrame"
+                                screen="cardTreeFrame"/>
+                    </tab>
+                    <tab id="templateSecurityTab"
+                         caption="msg://securityTab"
+                         lazy="true"
+                         margin="true">
+                        <iframe id="templateSecurityFrame"
+                                height="100%"
+                                screen="templateSecurityFrame"/>
+                    </tab>
+                    <tab id="securityTab"
+                         caption="msg://securityTab"
+                         expand="securityFrame"
+                         lazy="true"
+                         margin="true">
+                        <iframe id="securityFrame"
+                                screen="securityFrame"/>
+                    </tab>
+                </tabSheet>
+                <vbox height="100%"
+                      margin="false;false;false;true"
+                      spacing="true"
+                      width="220px">
+                    <scrollBox id="actionsFrameScroll"
+                               height="100%"
+                               spacing="true"
+                               width="100%">
+                        <vbox id="actionsPane"
+                              margin="true,true,true,false"
+                              stylename="edit-area"
+                              width="200px">
+                            <iframe id="actionsFrame"
+                                    screen="actionsFrame"/>
+                        </vbox>
+                    </scrollBox>
+                </vbox>
+            </hbox>
+        </hbox>
+    </layout>
+    <assign name="fieldWidth"
+            value="200px"/>
+    <assign name="bigFieldWidth"
+            value="550px"/>
+    <assign name="widthWithButton"
+            value="170px"/>
+    <assign name="rightPanelWidth"
+            value="200px"/>
+</window>

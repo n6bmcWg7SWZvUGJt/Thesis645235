@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.itogovaya.web.cartemplate.CarTemplateBrowse"
+        lookupComponent="cardsTable"
+        messagesPack="com.company.itogovaya.web.cartemplate">
+    <dsContext>
+        <groupDatasource id="cardsDs"
+                         class="com.company.itogovaya.entity.CarTemplate"
+                         view="browse">
+            <query>
+                <![CDATA[select distinct e from itogovaya$CarTemplate e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <layout expand="table-panel"
+            spacing="true">
+        <hbox height="AUTO"
+              spacing="true"
+              width="100%">
+            <filter id="genericFilter"
+                    applyTo="cardsTable"
+                    datasource="cardsDs"
+                    stylename="edit-area">
+                <properties exclude="parentCardAccess|procFamily|deletedBy|id|jbpmProcessId|deleteTs|category|updatedBy|updateTs|createTs|createdBy|signatures"
+                            include=".*"/>
+            </filter>
+        </hbox>
+        <vbox id="table-panel"
+              expand="cardsTable"
+              height="100%"
+              spacing="true">
+            <groupTable id="cardsTable"
+                        presentations="true"
+                        width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                    <action id="excel"/>
+                    <action id="refresh"/>
+                </actions>
+                <columns>
+                    <column id="hasAttachments"
+                            caption="msg://com.haulmont.workflow.core.entity/Card.hasAttachments"
+                            width="30">
+                        <formatter class="com.haulmont.thesis.gui.components.formatter.HasAttachmentsFormatter"/>
+                    </column>
+                    <column id="issue"/>
+                    <column id="templateName"/>
+                    <column id="price"/>
+                    <column id="name"/>
+                    <column id="global"/>
+                    <column id="carModel"/>
+                    <column id="carType"/>
+                </columns>
+                <rows datasource="cardsDs"/>
+                <rowsCount/>
+                <buttonsPanel id="buttonsPanel"
+                              alwaysVisible="true">
+                    <button id="createBtn"
+                            action="cardsTable.create"
+                            caption="msg://actions.Create"
+                            icon=""/>
+                    <button id="editBtn"
+                            action="cardsTable.edit"/>
+                    <button id="removeBtn"
+                            action="cardsTable.remove"/>
+                    <button id="excelBtn"
+                            action="cardsTable.excel"/>
+                    <button id="refreshBtn"
+                            action="cardsTable.refresh"/>
+                    <button id="createCardFromTemplateButton"
+                            caption="msg://createCardFromTemplate"/>
+                </buttonsPanel>
+            </groupTable>
+        </vbox>
+    </layout>
+</window>
