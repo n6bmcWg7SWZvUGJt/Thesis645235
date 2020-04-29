@@ -459,16 +459,10 @@
                               width="200px">
                             <iframe id="actionsFrame"
                                     screen="actionsFrame"/>
-                            <button id="button_1"
-                                    caption="actionFrame"
-                                    invoke="onRefreshButtonClick"/>
                         </vbox>
                         <iframe id="startProcessButtonsFrame"
                                 screen="startProcessButtonsFrame"
                                 width="200px"/>
-                        <button id="button_2"
-                                caption="startproces"
-                                invoke="onRefreshButtonClick"/>
                         <vbox id="otherActions"
                               margin="true,true,true,false"
                               spacing="true"

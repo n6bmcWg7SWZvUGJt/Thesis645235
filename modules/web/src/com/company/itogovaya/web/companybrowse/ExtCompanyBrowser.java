@@ -26,7 +26,7 @@ public class ExtCompanyBrowser extends CompanyBrowser {
 
         companiesTable.addGeneratedColumn("Count of application", new Table.ColumnGenerator() {
             @Override
-            public Component generateCell(Entity entity) { // В переменную сохраняем значение сервиса
+            public Component generateCell(Entity entity) {
                 return new Table.PlainTextCell(String.valueOf(applicationCountService.CountOfApplication((Contractor)entity)));
 
             }

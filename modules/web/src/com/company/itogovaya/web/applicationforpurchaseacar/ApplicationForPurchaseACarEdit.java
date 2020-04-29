@@ -1,9 +1,7 @@
 package com.company.itogovaya.web.applicationforpurchaseacar;
 
-import com.haulmont.cuba.gui.components.Action;
 import com.haulmont.thesis.web.actions.PrintReportAction;
 import com.haulmont.thesis.web.ui.basicdoc.editor.AbstractDocEditor;
-import com.haulmont.thesis.web.ui.common.ActionsFrame;
 import com.haulmont.workflow.core.app.WfUtils;
 import com.haulmont.cuba.gui.components.Component;
 import com.haulmont.cuba.gui.components.Label;
@@ -62,28 +60,13 @@ public class ApplicationForPurchaseACarEdit extends AbstractDocEditor<Applicatio
 
     private void buttonMethod() {
         try {
-            ActionsFrame ad = actionsFrame;
-            //Collection<Action> actions = actionsFrame.getActions();
             Collection<Component> components = actionsFrame.getOwnComponents();
-
-
             if (components != null) {
-
-                ApplicationForPurchaseACar f = getItem();
-                //f.setCarPaid(false);
-                boolean a = f.getCarPaid();
-                if (getItem().getCarPaid() == null || getItem().getCarPaid() == false) {
-                    ArrayList<Component> al = new ArrayList<>(components);
-                    al.get(2).setEnabled(false);
-//                    for (Action action : actions) {
-//                        action.setEnabled(false);
-//                    }
-                } else {
-                    ArrayList<Component> al = new ArrayList<>(components);
-                    al.get(2).setEnabled(true);
-//                    for (Action action : actions) {
-//                        action.setEnabled(true);
-//                    }
+                ArrayList<Component> al = new ArrayList<>(components);
+                boolean btnStat = false;
+                if (getItem().getCarPaid() == true) btnStat = true;
+                for (Component component : al) {
+                    if (component.getId().equals("Proverka_dokumentov.Provereno_BTN")) component.setEnabled(btnStat);
                 }
             }
         }catch (Exception e){

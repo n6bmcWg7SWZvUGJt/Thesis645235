@@ -7,7 +7,6 @@ import com.haulmont.cuba.core.Persistence;
 import org.apache.commons.lang.StringUtils;
 import com.haulmont.cuba.core.listener.BeforeInsertEntityListener;
 import com.haulmont.cuba.core.listener.BeforeUpdateEntityListener;
-import com.haulmont.cuba.core.global.AppBeans;
 import org.apache.commons.collections.CollectionUtils;
 
 import java.util.Arrays;

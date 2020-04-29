@@ -3,7 +3,6 @@ package com.company.itogovaya.web.screens;
 import com.company.itogovaya.entity.Car;
 import com.company.itogovaya.service.ApplicationCountService;
 import com.haulmont.cuba.gui.components.AbstractWindow;
-import java.util.Map;
 import com.haulmont.cuba.gui.components.Component;
 import com.haulmont.cuba.gui.components.Label;
 import com.haulmont.cuba.gui.components.LookupField;
